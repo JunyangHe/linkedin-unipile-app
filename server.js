@@ -35,6 +35,10 @@ app.listen(PORT, () => {
 app.use('/auth', authRoutes);
 app.use('/accounts', accountsRoutes);
 
+app.get('*', (req, res) => {
+    res.sendFile('index.html', { root: 'frontend/dist' });
+});
+
 
 app.get('/', (req, res) => {
     res.send('Backend is running');
