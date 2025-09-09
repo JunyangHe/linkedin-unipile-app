@@ -13,7 +13,7 @@
         }
 
         try {
-            const res = await fetch('http://localhost:3001/accounts/getaccounts', {
+            const res = await fetch('/accounts/getaccounts', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId: $userId }),

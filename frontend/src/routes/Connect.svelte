@@ -26,7 +26,7 @@
         alert($userId);
 
         try {
-            const res = await fetch('http://localhost:3001/auth/connectlinkedin', {
+            const res = await fetch('/auth/connectlinkedin', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId: $userId, username, password}),
@@ -55,7 +55,7 @@
         // error = '';
         // loading = true;
         try {
-            const res = await fetch('http://localhost:3001/auth/connectlinkedincookie', {
+            const res = await fetch('/auth/connectlinkedincookie', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ userId: $userId, li_at, li_a }),

@@ -16,11 +16,6 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Move CORS and logging ABOVE your routes
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true
-}));
 
 app.use((req, res, next) => {
     console.log(req.method, req.url);

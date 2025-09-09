@@ -22,7 +22,7 @@ router.post('/signin', async (req, res) => {
         }
     } catch (err) {
         console.log(err);
-        return res.status(500).json({ error: 'Failed to sign in.' });
+        return res.status(500).json({ error: err.message });
     }
 });
 
@@ -40,7 +40,7 @@ router.post('/signup', async (req, res) => {
         }
     } catch (err) {
         console.log(err);
-        return res.status(500).json({ error: 'Failed to sign up.' });
+        return res.status(500).json({ error: err.message });
     }
 });
 
