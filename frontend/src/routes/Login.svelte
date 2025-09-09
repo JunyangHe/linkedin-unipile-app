@@ -41,14 +41,12 @@
         const data = await res.json();
         if (data.success) {
             userId.set(username);
-            alert($userId);
             navigate('/Connect');
         } else {
             error = data.error || 'Sign in failed';
         }
         } catch (err) {
-            alert(err);
-        error = 'Network error';
+            error = 'Network error';
         }
         loading = false;
     }
