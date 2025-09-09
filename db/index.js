@@ -1,0 +1,57 @@
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:Hjy020909@localhost:5433/postgres'
+});
+
+
+// Create a new user
+async function createUser(user_id, password) {
+  console.log('saved to db');
+
+  const result = await pool.query(
+    'INSERT INTO userdb (user_id, password) VALUES ($1, $2)',
+    [user_id, password]
+  );
+
+  return result.rows[0];
+}
+
+async function createUnipileEntry(user_id, account_id, provider) {
+  const result = await pool.query(
+    'INSERT INTO unipiledb (user_id, account_id, provider) VALUES ($1, $2, $3)',
+    [user_id, account_id, provider]
+  );
+  return result.rows[0];
+}
+
+
+async function getPasswordByUserId(user_id) {
+  const result = await pool.query(
+    'SELECT password FROM userdb WHERE user_id = $1',
+    [user_id]
+  );
+  return result.rows[0];
+}
+
+// Get user by username
+async function getAccountByUserId(user_id) {
+  const result = await pool.query(
+    'SELECT user_id, account_id, provider FROM unipiledb WHERE user_id = $1',
+    [user_id]
+  );
+  return result.rows;
+}
+
+
+async function accountExists( account_id) {
+    const result = await pool.query(
+        'SELECT account_id FROM unipiledb WHERE account_id = $1',
+        [account_id]
+    );
+    console.log(result);
+    return result.rowCount > 0;
+}
+
+
+export { createUser, createUnipileEntry, getPasswordByUserId, getAccountByUserId, accountExists };
