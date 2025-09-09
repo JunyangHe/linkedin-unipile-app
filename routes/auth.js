@@ -47,7 +47,6 @@ router.post('/signup', async (req, res) => {
 
 
 router.post('/connectlinkedin', async (req, res) => {
-    alert('CONNECTED');
     let { userId, username, password } = req.body;
     const client = new UnipileClient(BASE_URL, ACCESS_TOKEN);
 
@@ -61,7 +60,7 @@ router.post('/connectlinkedin', async (req, res) => {
             provider,
         });
 
-        console.log(response);
+        console.log("result", response);
         account_id = response.account_id;
 
 
@@ -76,6 +75,7 @@ router.post('/connectlinkedin', async (req, res) => {
 
     } catch (err) {
         console.log(err);
+        console.log(err.message);
         res.status(500).json({ error: 'Failed to connect LinkedIn.' });
     }
 });
