@@ -47,6 +47,7 @@ router.post('/signup', async (req, res) => {
 
 
 router.post('/connectlinkedin', async (req, res) => {
+    alert('CONNECTED');
     let { userId, username, password } = req.body;
     const client = new UnipileClient(BASE_URL, ACCESS_TOKEN);
 

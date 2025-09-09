@@ -18,12 +18,9 @@
     });
 
     async function handleLinkedinAuth(e) {
-        alert('handleLinkedIn');
         e.preventDefault();
         // error = '';
         // loading = true;
-
-        alert($userId);
 
         try {
             const res = await fetch('/auth/connectlinkedin', {
