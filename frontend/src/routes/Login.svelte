@@ -32,7 +32,7 @@
         return;
         }
         try {
-        const res = await fetch(`http://localhost:3001/auth/${isSignUp ? 'signup' : 'signin'}`, {
+        const res = await fetch(`/auth/${isSignUp ? 'signup' : 'signin'}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password }),
@@ -56,9 +56,6 @@
 
 <section class="signin-container">
   <div class="signin-box">
-    <a href="/" class="logo-link-centered">
-      <img src="/figs/flyx_ai_logo.jpeg" alt="Flyx AI Logo" class="logo-centered" />
-    </a>
     <h2>{isSignUp ? 'Sign Up' : 'Sign In'}</h2>
     <form on:submit|preventDefault={handleSubmit} class="signin-form">
       <div class="input-group">

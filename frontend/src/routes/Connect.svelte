@@ -94,9 +94,6 @@
 
 <section class="home-container">
   <div class="info-box">
-    <a href="/Connect" class="logo-link-centered">
-      <img src="/figs/linkedin_logo.jpg" alt="LinkedIn Logo" class="logo-centered" />
-    </a>
     <h2>Sign in to LinkedIn</h2>
     <div class="method-tabs">
       <button
