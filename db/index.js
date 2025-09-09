@@ -1,7 +1,10 @@
 import { Pool } from 'pg';
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgres://ubo7vdjpbj79om:pd540ac8b8b1909ce7e454cce0187c4b7765fc97f2e6d6a3b5137cf7e736a61b6@co8c1665c0p5k.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/d6j18j0i23385f'
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 
